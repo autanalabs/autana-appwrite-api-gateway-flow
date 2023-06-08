@@ -281,11 +281,11 @@
         ],
         "out": [
             {
-                "x": 410,
-                "y": 1320,
+                "x": 380,
+                "y": 1500,
                 "wires": [
                     {
-                        "id": "ce80cd4f1eee9dc8",
+                        "id": "172f55cf6ac7b5d5",
                         "port": 0
                     }
                 ]
@@ -2143,7 +2143,7 @@
         "scope": null,
         "uncaught": false,
         "x": 280,
-        "y": 1600,
+        "y": 1700,
         "wires": [
             [
                 "53e604e8718cb944",
@@ -2176,7 +2176,7 @@
         "to": "",
         "reg": false,
         "x": 450,
-        "y": 1600,
+        "y": 1700,
         "wires": [
             [
                 "4423ac8b56223d0c"
@@ -2193,7 +2193,7 @@
             "6dc69ec0ea99ea75"
         ],
         "x": 575,
-        "y": 1600,
+        "y": 1700,
         "wires": []
     },
     {
@@ -2335,7 +2335,7 @@
         "name": "Exception handling",
         "info": "",
         "x": 250,
-        "y": 1540,
+        "y": 1640,
         "wires": []
     },
     {
@@ -2386,8 +2386,8 @@
         "links": [
             "8c84bece8037e906"
         ],
-        "x": 1245,
-        "y": 1420,
+        "x": 1675,
+        "y": 840,
         "wires": []
     },
     {
@@ -2455,7 +2455,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 440,
-        "y": 1680,
+        "y": 1780,
         "wires": []
     },
     {
@@ -2852,8 +2852,8 @@
         "z": "21bb71fafaf0d583",
         "name": "200",
         "info": "",
-        "x": 1340,
-        "y": 1420,
+        "x": 1770,
+        "y": 840,
         "wires": []
     },
     {
@@ -2914,8 +2914,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1090,
-        "y": 1420,
+        "x": 1520,
+        "y": 840,
         "wires": [
             [
                 "910355357ef7182b"
@@ -2994,7 +2994,8 @@
         "y": 1240,
         "wires": [
             [
-                "332a68e4d82c82a5"
+                "332a68e4d82c82a5",
+                "07d4f09a3abafd19"
             ]
         ]
     },
@@ -3055,8 +3056,8 @@
             "664d67d4c67ba3b9",
             "48ce9c458f076b2f"
         ],
-        "x": 935,
-        "y": 1420,
+        "x": 1365,
+        "y": 840,
         "wires": [
             [
                 "a99658442ce47e83"
@@ -3072,6 +3073,347 @@
         "x": 1210,
         "y": 920,
         "wires": []
+    },
+    {
+        "id": "07d4f09a3abafd19",
+        "type": "switch",
+        "z": "21bb71fafaf0d583",
+        "name": "has authorization ?",
+        "property": "req.headers.authorization",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 390,
+        "y": 1380,
+        "wires": [
+            [
+                "bd83d30b4e6c5f2d",
+                "322afdfcd1f62e90"
+            ],
+            [
+                "8ba8f4666ad19dd3",
+                "b6056b569e75b3ec"
+            ]
+        ]
+    },
+    {
+        "id": "8ba8f4666ad19dd3",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 55",
+        "mode": "link",
+        "links": [
+            "172f55cf6ac7b5d5"
+        ],
+        "x": 565,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "172f55cf6ac7b5d5",
+        "type": "link in",
+        "z": "21bb71fafaf0d583",
+        "name": "link in 28",
+        "links": [
+            "8ba8f4666ad19dd3",
+            "4d88b02e9f25c9c9",
+            "ea35cef142ecd517",
+            "053d3243271c5bd9"
+        ],
+        "x": 215,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "25cd299296f99c69",
+        "type": "switch",
+        "z": "21bb71fafaf0d583",
+        "name": "",
+        "property": "req.autana.authorization.type",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Basic",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Bearer",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 830,
+        "y": 1360,
+        "wires": [
+            [
+                "c9edf7c05afee53b"
+            ],
+            [
+                "e36df26c791d5830"
+            ],
+            [
+                "4d88b02e9f25c9c9"
+            ]
+        ]
+    },
+    {
+        "id": "bd83d30b4e6c5f2d",
+        "type": "function",
+        "z": "21bb71fafaf0d583",
+        "name": "parse Authorization",
+        "func": "var msg = msg;\nvar authorization = msg.req.headers.authorization;\nvar type = 'Unknown';\nvar value = authorization\n\nvar parts = authorization.split(\" \");\nif (parts.length == 2) {\n    type = parts[0];\n    value = parts[1];\n}\n\nvar autanaAuthorization = {\n    raw: authorization,\n    type: type,\n    value: value\n};\n\nmsg.req.autana.authorization = autanaAuthorization;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1360,
+        "wires": [
+            [
+                "25cd299296f99c69",
+                "c8fa5405cd560480"
+            ]
+        ]
+    },
+    {
+        "id": "4d88b02e9f25c9c9",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 56",
+        "mode": "link",
+        "links": [
+            "172f55cf6ac7b5d5"
+        ],
+        "x": 925,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "f16acdd1ed3b08a9",
+        "type": "decode",
+        "z": "21bb71fafaf0d583",
+        "name": "",
+        "encode": "Base64",
+        "x": 1220,
+        "y": 1260,
+        "wires": [
+            [
+                "7d22b4cc82217faf"
+            ]
+        ]
+    },
+    {
+        "id": "7d22b4cc82217faf",
+        "type": "encode",
+        "z": "21bb71fafaf0d583",
+        "name": "",
+        "encode": "Utf8",
+        "x": 1380,
+        "y": 1260,
+        "wires": [
+            [
+                "26356a79c9e8cb44"
+            ]
+        ]
+    },
+    {
+        "id": "26356a79c9e8cb44",
+        "type": "function",
+        "z": "21bb71fafaf0d583",
+        "name": "parse Basic",
+        "func": "var msg = msg;\n\nvar basic = msg.payload;\nvar parts = basic.split(\":\");\nif (parts.length == 2) {\n    msg.req.autana.authorization.user = parts[0];\n    msg.req.autana.authorization.password = parts[1];\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1550,
+        "y": 1260,
+        "wires": [
+            [
+                "29cf852843aa3af3"
+            ]
+        ]
+    },
+    {
+        "id": "ea35cef142ecd517",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 57",
+        "mode": "link",
+        "links": [
+            "172f55cf6ac7b5d5"
+        ],
+        "x": 1895,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "b6056b569e75b3ec",
+        "type": "debug",
+        "z": "21bb71fafaf0d583",
+        "name": "NO AUTHORIZATION",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "322afdfcd1f62e90",
+        "type": "debug",
+        "z": "21bb71fafaf0d583",
+        "name": "HAS AUTHORIZATION",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "c8fa5405cd560480",
+        "type": "debug",
+        "z": "21bb71fafaf0d583",
+        "name": "AFTER PARSE AUTHORIZATION ",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "c9edf7c05afee53b",
+        "type": "change",
+        "z": "21bb71fafaf0d583",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "req.autana.authorization.value",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1040,
+        "y": 1260,
+        "wires": [
+            [
+                "f16acdd1ed3b08a9"
+            ]
+        ]
+    },
+    {
+        "id": "e36df26c791d5830",
+        "type": "change",
+        "z": "21bb71fafaf0d583",
+        "name": "set token",
+        "rules": [
+            {
+                "t": "set",
+                "p": "req.autana.authorization.token",
+                "pt": "msg",
+                "to": "req.autana.authorization.value",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "req.autana.authorization.value",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 1340,
+        "wires": [
+            [
+                "053d3243271c5bd9"
+            ]
+        ]
+    },
+    {
+        "id": "053d3243271c5bd9",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 58",
+        "mode": "link",
+        "links": [
+            "172f55cf6ac7b5d5"
+        ],
+        "x": 1145,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "29cf852843aa3af3",
+        "type": "change",
+        "z": "21bb71fafaf0d583",
+        "name": "remove value",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "req.autana.authorization.value",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1730,
+        "y": 1260,
+        "wires": [
+            [
+                "ea35cef142ecd517"
+            ]
+        ]
     },
     {
         "id": "37217bb40323f06e",
@@ -6019,7 +6361,9 @@
         "y": 280,
         "wires": [
             [
-                "7e0beabf8fdb79aa"
+                "7e0beabf8fdb79aa",
+                "b99d8737ae818683",
+                "600f554a930e702e"
             ]
         ]
     },
@@ -6076,6 +6420,40 @@
         "name": "send response",
         "info": "",
         "x": 700,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b99d8737ae818683",
+        "type": "debug",
+        "z": "07021e24ebc3f637",
+        "name": "HEADERS",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "req.headers",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2570,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "600f554a930e702e",
+        "type": "debug",
+        "z": "07021e24ebc3f637",
+        "name": "AUTANA REQUEST",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "req.autana",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2570,
         "y": 380,
         "wires": []
     },
