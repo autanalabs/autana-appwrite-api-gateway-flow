@@ -35,7 +35,7 @@
                 "y": 30,
                 "wires": [
                     {
-                        "id": "75c09e600c694c46"
+                        "id": "17b53be2dac71cd8"
                     }
                 ]
             }
@@ -68,7 +68,7 @@
                 "y": 80,
                 "wires": [
                     {
-                        "id": "705577d5392af509"
+                        "id": "be19dc73b4d5cc1c"
                     }
                 ]
             }
@@ -134,7 +134,7 @@
                 "y": 80,
                 "wires": [
                     {
-                        "id": "0c53c7b50aca5332"
+                        "id": "e754ad39fc016bf1"
                     }
                 ]
             }
@@ -237,19 +237,19 @@
         "category": "",
         "in": [
             {
-                "x": 60,
-                "y": 80,
+                "x": 120,
+                "y": 60,
                 "wires": [
                     {
-                        "id": "27e010777d86ff75"
+                        "id": "c62c7eaa6a1a1b6d"
                     }
                 ]
             }
         ],
         "out": [
             {
-                "x": 480,
-                "y": 800,
+                "x": 580,
+                "y": 900,
                 "wires": [
                     {
                         "id": "9e2b6dbc63696918",
@@ -438,11 +438,37 @@
         ]
     },
     {
-        "id": "8b9887394539e844",
-        "type": "appwrite-config",
-        "endpoint": "https://cloud.appwrite.io/v1",
-        "project": "api-gateway",
-        "apikey": "7af2626e01797a2f1598c3eeff7b1f24c7b12fb6a03f485ca8f94dfa193e80cb1063d09dec892023d3270d157f8cca092d4b04618c9a3384ec5cbc9695aec458bf40d272b1bb4e3eaf6507ef338d6e9501a06ec5077855e70c0685cb6de77aca260e29b4b89c96d686fba6a55ac68a1d219b9dc1144a21d754bddfaec9906b8d"
+        "id": "a3beb808c5b78aa6",
+        "type": "subflow",
+        "name": "Load API-Gateway credentials",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 40,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "595611d4cee78f5f"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 360,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "595611d4cee78f5f",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {},
+        "color": "#DDAA99"
     },
     {
         "id": "25e3266b912fbed8",
@@ -463,7 +489,7 @@
         "id": "75c09e600c694c46",
         "type": "com.autana.createTable",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "rules",
         "skipExists": true,
@@ -480,7 +506,7 @@
         "id": "b886d808fa66a10b",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "command",
@@ -502,7 +528,7 @@
         "id": "eb97da16d623597f",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "path",
@@ -524,7 +550,7 @@
         "id": "456afbec95b14cdf",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "actionId",
@@ -546,7 +572,7 @@
         "id": "2f2fbf207b29224a",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "actionType",
@@ -608,7 +634,7 @@
         "id": "d42a81dd6e4ba640",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "projectId",
@@ -630,7 +656,7 @@
         "id": "f3fd93bbf6ea4f13",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "databaseId",
@@ -662,7 +688,7 @@
         "id": "d3e9d732435093e3",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "collectionId",
@@ -684,7 +710,7 @@
         "id": "2b76cb889312b797",
         "type": "com.autana.createIndex",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "indexName": "uk_command_path",
@@ -705,7 +731,7 @@
         "id": "3771017c6ff47a5f",
         "type": "com.autana.createIndex",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "indexName": "uk_projectId_actionId",
@@ -766,7 +792,7 @@
         "id": "3b8441fe70867b9b",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "operation",
@@ -788,11 +814,11 @@
         "id": "a27b785035fb78f8",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "inboundTransform",
-        "size": "4096",
+        "size": "2048",
         "required": false,
         "defaultValue": "",
         "isArray": false,
@@ -810,11 +836,11 @@
         "id": "345e0e959212b292",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "outboundTransform",
-        "size": "4096",
+        "size": "2048",
         "required": false,
         "defaultValue": "",
         "isArray": false,
@@ -862,7 +888,7 @@
         "id": "7082d3a1b7b99c45",
         "type": "com.autana.createIndex",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "indexName": "ix_projectId",
@@ -881,11 +907,11 @@
         "id": "ebb85e53ddbb65ad",
         "type": "com.autana.StringColumn",
         "z": "7e59738d989d54b6",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "authorizationRule",
-        "size": "4096",
+        "size": "2048",
         "required": false,
         "defaultValue": "",
         "isArray": false,
@@ -910,10 +936,23 @@
         "wires": []
     },
     {
+        "id": "17b53be2dac71cd8",
+        "type": "subflow:a3beb808c5b78aa6",
+        "z": "7e59738d989d54b6",
+        "name": "",
+        "x": 230,
+        "y": 80,
+        "wires": [
+            [
+                "75c09e600c694c46"
+            ]
+        ]
+    },
+    {
         "id": "705577d5392af509",
         "type": "com.autana.createTable",
         "z": "1314f78d13357201",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "projects",
         "skipExists": true,
@@ -930,7 +969,7 @@
         "id": "3aa96748c86a35cb",
         "type": "com.autana.StringColumn",
         "z": "1314f78d13357201",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "endpoint",
@@ -952,7 +991,7 @@
         "id": "2f1fab63cb7ad966",
         "type": "com.autana.StringColumn",
         "z": "1314f78d13357201",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "projectId",
@@ -974,7 +1013,7 @@
         "id": "1030c05996b3eda5",
         "type": "com.autana.StringColumn",
         "z": "1314f78d13357201",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "key": "apiKey",
@@ -1026,7 +1065,7 @@
         "id": "3b650ecdc2dca7b9",
         "type": "com.autana.createIndex",
         "z": "1314f78d13357201",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "",
         "indexName": "ix_projectId",
@@ -1050,6 +1089,19 @@
         "x": 630,
         "y": 540,
         "wires": []
+    },
+    {
+        "id": "be19dc73b4d5cc1c",
+        "type": "subflow:a3beb808c5b78aa6",
+        "z": "1314f78d13357201",
+        "name": "",
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "705577d5392af509"
+            ]
+        ]
     },
     {
         "id": "7cb40c28e0b111e0",
@@ -1199,7 +1251,7 @@
         "id": "2a4ec9dded10b9d4",
         "type": "com.autana.insertRow",
         "z": "1e9e2287cf2edeca",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "projects",
         "name": "",
@@ -1241,7 +1293,7 @@
         "id": "0c53c7b50aca5332",
         "type": "com.autana.readTable",
         "z": "1e9e2287cf2edeca",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "projects",
         "name": "find pets project",
@@ -1311,10 +1363,23 @@
         ]
     },
     {
+        "id": "e754ad39fc016bf1",
+        "type": "subflow:a3beb808c5b78aa6",
+        "z": "1e9e2287cf2edeca",
+        "name": "",
+        "x": 390,
+        "y": 80,
+        "wires": [
+            [
+                "0c53c7b50aca5332"
+            ]
+        ]
+    },
+    {
         "id": "95bdadead4830db0",
         "type": "com.autana.insertRow",
         "z": "8e844c7077bbffbc",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "rules",
         "name": "",
@@ -1356,7 +1421,7 @@
         "id": "4563ec0fbfe26533",
         "type": "com.autana.readTable",
         "z": "8e844c7077bbffbc",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "rules",
         "name": "find rule by command and path",
@@ -1430,7 +1495,7 @@
         "y": 80,
         "wires": [
             [
-                "4563ec0fbfe26533"
+                "0d346983713529b6"
             ]
         ]
     },
@@ -1457,6 +1522,19 @@
         "y": 260,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "0d346983713529b6",
+        "type": "subflow:a3beb808c5b78aa6",
+        "z": "8e844c7077bbffbc",
+        "name": "",
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "4563ec0fbfe26533"
+            ]
         ]
     },
     {
@@ -1791,13 +1869,13 @@
         "id": "27e010777d86ff75",
         "type": "com.autana.readTable",
         "z": "5846b8283270afd9",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "rules",
         "name": "find rules",
         "query": "",
-        "x": 200,
-        "y": 80,
+        "x": 300,
+        "y": 180,
         "wires": [
             [
                 "cf2bfa976d1e9c80"
@@ -1815,8 +1893,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 210,
-        "y": 200,
+        "x": 310,
+        "y": 300,
         "wires": [
             [
                 "4efe0989dfee1245"
@@ -1839,8 +1917,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 250,
-        "y": 520,
+        "x": 350,
+        "y": 620,
         "wires": [
             [
                 "14b8ae24475672c8"
@@ -1866,8 +1944,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 200,
-        "y": 140,
+        "x": 300,
+        "y": 240,
         "wires": [
             [
                 "0a939ebed6480be4"
@@ -1907,8 +1985,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 280,
-        "y": 280,
+        "x": 380,
+        "y": 380,
         "wires": [
             [
                 "f96bb59d3c811ea4"
@@ -1926,8 +2004,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 580,
+        "x": 390,
+        "y": 680,
         "wires": [
             [
                 "6a9afcb0120a0d0c"
@@ -1945,8 +2023,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 390,
-        "y": 640,
+        "x": 490,
+        "y": 740,
         "wires": [
             [
                 "c70e0be681937ac2"
@@ -1969,8 +2047,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 350,
-        "y": 800,
+        "x": 450,
+        "y": 900,
         "wires": [
             []
         ]
@@ -1986,8 +2064,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 700,
+        "x": 540,
+        "y": 800,
         "wires": [
             [
                 "9e2b6dbc63696918"
@@ -1998,13 +2076,13 @@
         "id": "f96bb59d3c811ea4",
         "type": "com.autana.readTable",
         "z": "5846b8283270afd9",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "projects",
         "name": "find project by id",
         "query": "",
-        "x": 290,
-        "y": 340,
+        "x": 390,
+        "y": 440,
         "wires": [
             [
                 "d01cf9a9c6651140"
@@ -2042,11 +2120,23 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 300,
-        "y": 420,
+        "x": 400,
+        "y": 520,
         "wires": [
             [
                 "5cb498df94edcd88"
+            ]
+        ]
+    },
+    {
+        "id": "c62c7eaa6a1a1b6d",
+        "type": "subflow:a3beb808c5b78aa6",
+        "z": "5846b8283270afd9",
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "27e010777d86ff75"
             ]
         ]
     },
@@ -4081,6 +4171,45 @@
         "targetType": "msg",
         "x": 420,
         "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "595611d4cee78f5f",
+        "type": "change",
+        "z": "a3beb808c5b78aa6",
+        "name": "set credentials",
+        "rules": [
+            {
+                "t": "set",
+                "p": "apiKey",
+                "pt": "msg",
+                "to": "7af2626e01797a2f1598c3eeff7b1f24c7b12fb6a03f485ca8f94dfa193e80cb1063d09dec892023d3270d157f8cca092d4b04618c9a3384ec5cbc9695aec458bf40d272b1bb4e3eaf6507ef338d6e9501a06ec5077855e70c0685cb6de77aca260e29b4b89c96d686fba6a55ac68a1d219b9dc1144a21d754bddfaec9906b8d",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "endpoint",
+                "pt": "msg",
+                "to": "https://cloud.appwrite.io/v1",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "project",
+                "pt": "msg",
+                "to": "api-gateway",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 200,
+        "y": 80,
         "wires": [
             []
         ]
@@ -7281,7 +7410,7 @@
         "y": 60,
         "wires": [
             [
-                "112fc57db460c397"
+                "af26c257dbbe04e2"
             ]
         ]
     },
@@ -7289,13 +7418,13 @@
         "id": "112fc57db460c397",
         "type": "com.autana.readTable",
         "z": "58697012b7039513",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "rules",
         "name": "find rall rules",
         "query": "",
-        "x": 270,
-        "y": 140,
+        "x": 310,
+        "y": 180,
         "wires": [
             [
                 "70a1841bbfec3c2d"
@@ -7321,8 +7450,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 280,
-        "y": 220,
+        "x": 320,
+        "y": 260,
         "wires": [
             [
                 "94c7848d28a66a5d"
@@ -7340,8 +7469,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 270,
-        "y": 300,
+        "x": 310,
+        "y": 340,
         "wires": [
             [
                 "0842aad5d20ba602"
@@ -7352,13 +7481,13 @@
         "id": "ba54d0f04f964593",
         "type": "com.autana.deleteRow",
         "z": "58697012b7039513",
-        "appwriteConfig": "8b9887394539e844",
+        "appwriteConfig": "ce1cf8f39be0d7d4",
         "databaseName": "main",
         "tableName": "rules",
         "name": "",
         "docId": "",
-        "x": 350,
-        "y": 460,
+        "x": 390,
+        "y": 500,
         "wires": [
             [
                 "4dd5273722855c86"
@@ -7384,8 +7513,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 380,
+        "x": 400,
+        "y": 420,
         "wires": [
             [
                 "ba54d0f04f964593"
@@ -7408,8 +7537,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 270,
-        "y": 540,
+        "x": 310,
+        "y": 580,
         "wires": [
             [
                 "f4687b26f6e175c8"
@@ -7429,8 +7558,20 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
-        "y": 540,
+        "x": 630,
+        "y": 580,
         "wires": []
+    },
+    {
+        "id": "af26c257dbbe04e2",
+        "type": "subflow:a3beb808c5b78aa6",
+        "z": "58697012b7039513",
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "112fc57db460c397"
+            ]
+        ]
     }
 ]
