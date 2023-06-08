@@ -466,7 +466,23 @@
                 ]
             }
         ],
-        "env": [],
+        "env": [
+            {
+                "name": "apiKey",
+                "type": "env",
+                "value": "APIGATEWAY_APIKEY"
+            },
+            {
+                "name": "endpoint",
+                "type": "env",
+                "value": "APIGATEWAY_ENDPOINT"
+            },
+            {
+                "name": "project",
+                "type": "env",
+                "value": "APIGATEWAY_PROJECT"
+            }
+        ],
         "meta": {},
         "color": "#DDAA99"
     },
@@ -818,7 +834,7 @@
         "databaseName": "main",
         "tableName": "",
         "key": "inboundTransform",
-        "size": "4096",
+        "size": "2048",
         "required": false,
         "defaultValue": "",
         "isArray": false,
@@ -840,7 +856,7 @@
         "databaseName": "main",
         "tableName": "",
         "key": "outboundTransform",
-        "size": "4096",
+        "size": "2048",
         "required": false,
         "defaultValue": "",
         "isArray": false,
@@ -911,7 +927,7 @@
         "databaseName": "main",
         "tableName": "",
         "key": "authorizationRule",
-        "size": "4096",
+        "size": "2048",
         "required": false,
         "defaultValue": "",
         "isArray": false,
@@ -4185,22 +4201,22 @@
                 "t": "set",
                 "p": "apiKey",
                 "pt": "msg",
-                "to": "7af2626e01797a2f1598c3eeff7b1f24c7b12fb6a03f485ca8f94dfa193e80cb1063d09dec892023d3270d157f8cca092d4b04618c9a3384ec5cbc9695aec458bf40d272b1bb4e3eaf6507ef338d6e9501a06ec5077855e70c0685cb6de77aca260e29b4b89c96d686fba6a55ac68a1d219b9dc1144a21d754bddfaec9906b8d",
-                "tot": "str"
+                "to": "apiKey",
+                "tot": "env"
             },
             {
                 "t": "set",
                 "p": "endpoint",
                 "pt": "msg",
-                "to": "https://cloud.appwrite.io/v1",
-                "tot": "str"
+                "to": "endpoint",
+                "tot": "env"
             },
             {
                 "t": "set",
                 "p": "project",
                 "pt": "msg",
-                "to": "api-gateway",
-                "tot": "str"
+                "to": "project",
+                "tot": "env"
             }
         ],
         "action": "",
@@ -4211,8 +4227,27 @@
         "x": 200,
         "y": 80,
         "wires": [
-            []
+            [
+                "63d573d684c47c7d"
+            ]
         ]
+    },
+    {
+        "id": "63d573d684c47c7d",
+        "type": "debug",
+        "z": "a3beb808c5b78aa6",
+        "name": "API_GatewayCredentials",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 180,
+        "wires": []
     },
     {
         "id": "e4e9b44c02ccfdd1",
@@ -7145,6 +7180,58 @@
         "statusType": "auto",
         "x": 2570,
         "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b820885771d23f86",
+        "type": "inject",
+        "z": "07021e24ebc3f637",
+        "name": "",
+        "props": [
+            {
+                "p": "project",
+                "v": "APIGATEWAY_PROJECT",
+                "vt": "env"
+            },
+            {
+                "p": "endpoint",
+                "v": "APIGATEWAY_ENDPOINT",
+                "vt": "env"
+            },
+            {
+                "p": "apiKey",
+                "v": "APIGATEWAY_APIKEY",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 690,
+        "y": 80,
+        "wires": [
+            [
+                "70d04cbc2e90c5c0"
+            ]
+        ]
+    },
+    {
+        "id": "70d04cbc2e90c5c0",
+        "type": "debug",
+        "z": "07021e24ebc3f637",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 80,
         "wires": []
     },
     {
