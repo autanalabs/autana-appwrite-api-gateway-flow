@@ -3129,7 +3129,9 @@
             "ea35cef142ecd517",
             "053d3243271c5bd9",
             "17927108bfd31f6a",
-            "98309e1335dd6235"
+            "98309e1335dd6235",
+            "7133c9c305b13cec",
+            "b544cfe57ad494ea"
         ],
         "x": 215,
         "y": 1500,
@@ -3389,8 +3391,8 @@
         "links": [
             "172f55cf6ac7b5d5"
         ],
-        "x": 1415,
-        "y": 1840,
+        "x": 1575,
+        "y": 2040,
         "wires": []
     },
     {
@@ -3522,7 +3524,7 @@
         "y": 1660,
         "wires": [
             [
-                "8f1ce99aba131654"
+                "d24614ec7cebfa28"
             ]
         ]
     },
@@ -3595,14 +3597,14 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1370,
-        "y": 1780,
+        "x": 1430,
+        "y": 1820,
         "wires": [
             [
                 "c364e303333cc969"
             ],
             [
-                "053d3243271c5bd9"
+                "04df27bd32589ebd"
             ]
         ]
     },
@@ -3639,8 +3641,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1580,
-        "y": 1760,
+        "x": 1620,
+        "y": 1800,
         "wires": [
             [
                 "d84709cb579d16f3",
@@ -3668,29 +3670,16 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 1760,
-        "y": 1760,
+        "x": 1820,
+        "y": 1800,
         "wires": [
             [
-                "17927108bfd31f6a"
+                "268328678823a2f4"
             ],
             [
                 "77fa1802d0ded496"
             ]
         ]
-    },
-    {
-        "id": "17927108bfd31f6a",
-        "type": "link out",
-        "z": "21bb71fafaf0d583",
-        "name": "link out 59",
-        "mode": "link",
-        "links": [
-            "172f55cf6ac7b5d5"
-        ],
-        "x": 1875,
-        "y": 1740,
-        "wires": []
     },
     {
         "id": "77fa1802d0ded496",
@@ -3711,31 +3700,19 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1930,
-        "y": 1800,
+        "x": 1990,
+        "y": 1840,
         "wires": [
             [
-                "98309e1335dd6235"
+                "e1b5447d361e67bc"
             ]
         ]
-    },
-    {
-        "id": "98309e1335dd6235",
-        "type": "link out",
-        "z": "21bb71fafaf0d583",
-        "name": "link out 60",
-        "mode": "link",
-        "links": [
-            "172f55cf6ac7b5d5"
-        ],
-        "x": 2055,
-        "y": 1800,
-        "wires": []
     },
     {
         "id": "74f074f592d43f44",
         "type": "debug",
         "z": "21bb71fafaf0d583",
+        "d": true,
         "name": "IAT",
         "active": true,
         "tosidebar": true,
@@ -3745,8 +3722,256 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
+        "x": 1810,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "d24614ec7cebfa28",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 61",
+        "mode": "link",
+        "links": [
+            "8fd97fe620933411"
+        ],
+        "x": 1655,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "8fd97fe620933411",
+        "type": "link in",
+        "z": "21bb71fafaf0d583",
+        "name": "link in 29",
+        "links": [
+            "d24614ec7cebfa28"
+        ],
+        "x": 1315,
+        "y": 1820,
+        "wires": [
+            [
+                "8f1ce99aba131654"
+            ]
+        ]
+    },
+    {
+        "id": "04df27bd32589ebd",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 62",
+        "mode": "link",
+        "links": [
+            "8cf7be4292cb9f77"
+        ],
+        "x": 1545,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "8cf7be4292cb9f77",
+        "type": "link in",
+        "z": "21bb71fafaf0d583",
+        "name": "link in 30",
+        "links": [
+            "04df27bd32589ebd",
+            "268328678823a2f4",
+            "e1b5447d361e67bc",
+            "3f4e83162a3795f2",
+            "799e66c3aaa6a274",
+            "0a5d4c39affc673b"
+        ],
+        "x": 1315,
+        "y": 2000,
+        "wires": [
+            [
+                "c9fdcf49d16241ab"
+            ]
+        ]
+    },
+    {
+        "id": "268328678823a2f4",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 63",
+        "mode": "link",
+        "links": [
+            "8cf7be4292cb9f77"
+        ],
+        "x": 1935,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "e1b5447d361e67bc",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 64",
+        "mode": "link",
+        "links": [
+            "8cf7be4292cb9f77"
+        ],
+        "x": 2115,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "c9fdcf49d16241ab",
+        "type": "switch",
+        "z": "21bb71fafaf0d583",
+        "name": "has body.exp",
+        "property": "req.autana.authorization.token.body.exp",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nnull"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1440,
+        "y": 2000,
+        "wires": [
+            [
+                "2eb1b7f7a44ee0c5"
+            ],
+            [
+                "053d3243271c5bd9"
+            ]
+        ]
+    },
+    {
+        "id": "2eb1b7f7a44ee0c5",
+        "type": "change",
+        "z": "21bb71fafaf0d583",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "exp",
+                "pt": "msg",
+                "to": "req.autana.authorization.token.body.exp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1630,
+        "y": 1980,
+        "wires": [
+            [
+                "ba4660c715a5152c",
+                "37a4229505d93e45"
+            ]
+        ]
+    },
+    {
+        "id": "ba4660c715a5152c",
+        "type": "switch",
+        "z": "21bb71fafaf0d583",
+        "name": "exp is future",
+        "property": "exp",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "timestamp",
+                "vt": "msg"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1850,
+        "y": 1980,
+        "wires": [
+            [
+                "7133c9c305b13cec"
+            ],
+            [
+                "f58f179eea844704"
+            ]
+        ]
+    },
+    {
+        "id": "f58f179eea844704",
+        "type": "change",
+        "z": "21bb71fafaf0d583",
+        "name": "token invalid",
+        "rules": [
+            {
+                "t": "set",
+                "p": "req.autana.authorization.token.isValid",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2030,
+        "y": 2020,
+        "wires": [
+            [
+                "b544cfe57ad494ea"
+            ]
+        ]
+    },
+    {
+        "id": "37a4229505d93e45",
+        "type": "debug",
+        "z": "21bb71fafaf0d583",
+        "d": true,
+        "name": "EXP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 1830,
-        "y": 1640,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "7133c9c305b13cec",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 68",
+        "mode": "link",
+        "links": [
+            "172f55cf6ac7b5d5"
+        ],
+        "x": 1975,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "b544cfe57ad494ea",
+        "type": "link out",
+        "z": "21bb71fafaf0d583",
+        "name": "link out 69",
+        "mode": "link",
+        "links": [
+            "172f55cf6ac7b5d5"
+        ],
+        "x": 2155,
+        "y": 2020,
         "wires": []
     },
     {
