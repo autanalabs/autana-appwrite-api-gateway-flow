@@ -2815,7 +2815,7 @@
         "y": 1040,
         "wires": [
             [
-                "7e0beabf8fdb79aa"
+                "664d67d4c67ba3b9"
             ],
             [
                 "378914556a94d67c"
@@ -3042,8 +3042,8 @@
         "links": [
             "2f4ca784c783021a"
         ],
-        "x": 1445,
-        "y": 1160,
+        "x": 1135,
+        "y": 920,
         "wires": []
     },
     {
@@ -3064,257 +3064,14 @@
         ]
     },
     {
-        "id": "7e0beabf8fdb79aa",
-        "type": "switch",
-        "z": "21bb71fafaf0d583",
-        "name": "authorizationRule is not Empty ?",
-        "property": "req.action.authorizationRule",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nempty"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1250,
-        "y": 980,
-        "wires": [
-            [
-                "d4c5032c3b57bdef",
-                "b927fcece75cbabd"
-            ],
-            [
-                "664d67d4c67ba3b9",
-                "c6b89407ab589015"
-            ]
-        ]
-    },
-    {
-        "id": "d4c5032c3b57bdef",
-        "type": "com.autana.jsonata",
-        "z": "21bb71fafaf0d583",
-        "name": "evaluate authorized",
-        "template": "req.action.authorizationRule",
-        "templateType": "msg",
-        "target": "req.action.authorized",
-        "targetType": "msg",
-        "x": 1570,
-        "y": 960,
-        "wires": [
-            [
-                "49c8c2024f692874"
-            ]
-        ]
-    },
-    {
-        "id": "49c8c2024f692874",
-        "type": "switch",
-        "z": "21bb71fafaf0d583",
-        "name": "is authorized ?",
-        "property": "req.action.authorized",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1600,
-        "y": 1020,
-        "wires": [
-            [
-                "48ce9c458f076b2f"
-            ],
-            [
-                "ed2d76fe5f582d29"
-            ]
-        ]
-    },
-    {
-        "id": "48ce9c458f076b2f",
-        "type": "link out",
-        "z": "21bb71fafaf0d583",
-        "name": "link out 48",
-        "mode": "link",
-        "links": [
-            "2f4ca784c783021a"
-        ],
-        "x": 1765,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "f3bed67842f5fc3c",
-        "type": "change",
-        "z": "21bb71fafaf0d583",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "statusCode",
-                "pt": "msg",
-                "to": "401",
-                "tot": "str"
-            },
-            {
-                "t": "delete",
-                "p": "payload",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 980,
-        "wires": [
-            [
-                "a45c62fb34660acc"
-            ]
-        ]
-    },
-    {
-        "id": "a45c62fb34660acc",
-        "type": "link out",
-        "z": "21bb71fafaf0d583",
-        "name": "link out 49",
-        "mode": "link",
-        "links": [
-            "6dc69ec0ea99ea75"
-        ],
-        "x": 535,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "e1ffa98f9a489e88",
-        "type": "comment",
-        "z": "21bb71fafaf0d583",
-        "name": "UnAuthorized",
-        "info": "",
-        "x": 230,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "d783e913ba69190c",
-        "type": "link in",
-        "z": "21bb71fafaf0d583",
-        "name": "link in 26",
-        "links": [
-            "ed2d76fe5f582d29"
-        ],
-        "x": 175,
-        "y": 980,
-        "wires": [
-            [
-                "f3bed67842f5fc3c"
-            ]
-        ]
-    },
-    {
-        "id": "ed2d76fe5f582d29",
-        "type": "link out",
-        "z": "21bb71fafaf0d583",
-        "name": "link out 50",
-        "mode": "link",
-        "links": [
-            "d783e913ba69190c"
-        ],
-        "x": 1765,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "f6b9b3b7dae0a622",
-        "type": "comment",
-        "z": "21bb71fafaf0d583",
-        "name": "401",
-        "info": "",
-        "x": 1850,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "37dea0c63d4f7d41",
+        "id": "25cdedae0d5cd943",
         "type": "comment",
         "z": "21bb71fafaf0d583",
         "name": "OK",
         "info": "",
-        "x": 1850,
-        "y": 980,
+        "x": 1210,
+        "y": 920,
         "wires": []
-    },
-    {
-        "id": "b927fcece75cbabd",
-        "type": "debug",
-        "z": "21bb71fafaf0d583",
-        "name": "authorizationRule NOT NULL",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1520,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "c6b89407ab589015",
-        "type": "debug",
-        "z": "21bb71fafaf0d583",
-        "name": "authorizationRule NULL",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1530,
-        "y": 1220,
-        "wires": []
-    },
-    {
-        "id": "5847943a6795ebc7",
-        "type": "change",
-        "z": "21bb71fafaf0d583",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "(req.host = 'localhost') = true",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1680,
-        "y": 1120,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "37217bb40323f06e",
@@ -3593,7 +3350,8 @@
             "236d90cb66ce23de",
             "f8ea83b111728779",
             "7fe491a18d8a9af3",
-            "695bd105124819dd"
+            "695bd105124819dd",
+            "2c99165850dccec6"
         ],
         "x": 1005,
         "y": 1120,
@@ -3752,8 +3510,8 @@
         "links": [
             "72969fbf592fb8ea"
         ],
-        "x": 585,
-        "y": 340,
+        "x": 3255,
+        "y": 200,
         "wires": []
     },
     {
@@ -3762,7 +3520,8 @@
         "z": "07021e24ebc3f637",
         "name": "link in 9",
         "links": [
-            "a0431d57797a7af0"
+            "a0431d57797a7af0",
+            "f30bd138fa75f233"
         ],
         "x": 155,
         "y": 480,
@@ -4670,7 +4429,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1120,
+        "x": 1140,
         "y": 480,
         "wires": [
             [
@@ -4873,7 +4632,7 @@
         "links": [
             "6b66ab49ecbaa682"
         ],
-        "x": 1265,
+        "x": 1295,
         "y": 360,
         "wires": []
     },
@@ -5631,8 +5390,8 @@
         "name": "",
         "statusCode": "202",
         "headers": {},
-        "x": 2420,
-        "y": 440,
+        "x": 2260,
+        "y": 680,
         "wires": []
     },
     {
@@ -5713,8 +5472,8 @@
         "links": [
             "68d558696d080f2a"
         ],
-        "x": 2375,
-        "y": 500,
+        "x": 2215,
+        "y": 740,
         "wires": []
     },
     {
@@ -5725,8 +5484,8 @@
         "links": [
             "dca01c0d9e476ad3"
         ],
-        "x": 235,
-        "y": 160,
+        "x": 115,
+        "y": 140,
         "wires": [
             [
                 "3b7c8c5f9387b3c7"
@@ -5797,8 +5556,8 @@
         "links": [
             "3359b1a4ce0e706c"
         ],
-        "x": 2305,
-        "y": 460,
+        "x": 2145,
+        "y": 700,
         "wires": [
             [
                 "86575a705f72af13",
@@ -6013,7 +5772,7 @@
         "y": 340,
         "wires": [
             [
-                "a0431d57797a7af0"
+                "9da426b0f53c635c"
             ],
             [
                 "695bd105124819dd"
@@ -6030,6 +5789,293 @@
             "6b66ab49ecbaa682"
         ],
         "x": 585,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "7e0beabf8fdb79aa",
+        "type": "switch",
+        "z": "07021e24ebc3f637",
+        "name": "authorizationRule is not Empty ?",
+        "property": "req.autana.action.authorizationRule",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2610,
+        "y": 280,
+        "wires": [
+            [
+                "d4c5032c3b57bdef",
+                "b927fcece75cbabd"
+            ],
+            [
+                "c6b89407ab589015",
+                "f30bd138fa75f233"
+            ]
+        ]
+    },
+    {
+        "id": "d4c5032c3b57bdef",
+        "type": "com.autana.jsonata",
+        "z": "07021e24ebc3f637",
+        "name": "evaluate authorized",
+        "template": "req.autana.action.authorizationRule",
+        "templateType": "msg",
+        "target": "req.autana.action.authorized",
+        "targetType": "msg",
+        "x": 2910,
+        "y": 260,
+        "wires": [
+            [
+                "49c8c2024f692874"
+            ]
+        ]
+    },
+    {
+        "id": "49c8c2024f692874",
+        "type": "switch",
+        "z": "07021e24ebc3f637",
+        "name": "is authorized ?",
+        "property": "req.autana.action.authorized",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 3120,
+        "y": 260,
+        "wires": [
+            [
+                "a0431d57797a7af0"
+            ],
+            [
+                "ed2d76fe5f582d29"
+            ]
+        ]
+    },
+    {
+        "id": "f3bed67842f5fc3c",
+        "type": "change",
+        "z": "07021e24ebc3f637",
+        "name": "401 UNAUTHORIZED",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "401",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1140,
+        "y": 300,
+        "wires": [
+            [
+                "2c99165850dccec6"
+            ]
+        ]
+    },
+    {
+        "id": "d783e913ba69190c",
+        "type": "link in",
+        "z": "07021e24ebc3f637",
+        "name": "link in 26",
+        "links": [
+            "ed2d76fe5f582d29"
+        ],
+        "x": 985,
+        "y": 300,
+        "wires": [
+            [
+                "f3bed67842f5fc3c"
+            ]
+        ]
+    },
+    {
+        "id": "ed2d76fe5f582d29",
+        "type": "link out",
+        "z": "07021e24ebc3f637",
+        "name": "link out 50",
+        "mode": "link",
+        "links": [
+            "d783e913ba69190c"
+        ],
+        "x": 3255,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f6b9b3b7dae0a622",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "401",
+        "info": "",
+        "x": 3330,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "37dea0c63d4f7d41",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "to ActionType",
+        "info": "",
+        "x": 3350,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "b927fcece75cbabd",
+        "type": "debug",
+        "z": "07021e24ebc3f637",
+        "name": "authorizationRule NOT NULL",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2940,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "c6b89407ab589015",
+        "type": "debug",
+        "z": "07021e24ebc3f637",
+        "name": "authorizationRule NULL",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2930,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "bfcdbe2c5ce1f48a",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "reload rules",
+        "info": "",
+        "x": 2310,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "2c99165850dccec6",
+        "type": "link out",
+        "z": "07021e24ebc3f637",
+        "name": "link out 52",
+        "mode": "link",
+        "links": [
+            "6b66ab49ecbaa682"
+        ],
+        "x": 1295,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9412b6784f52a3da",
+        "type": "link in",
+        "z": "07021e24ebc3f637",
+        "name": "link in 27",
+        "links": [
+            "9da426b0f53c635c"
+        ],
+        "x": 2425,
+        "y": 280,
+        "wires": [
+            [
+                "7e0beabf8fdb79aa"
+            ]
+        ]
+    },
+    {
+        "id": "9da426b0f53c635c",
+        "type": "link out",
+        "z": "07021e24ebc3f637",
+        "name": "link out 53",
+        "mode": "link",
+        "links": [
+            "9412b6784f52a3da"
+        ],
+        "x": 585,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f30bd138fa75f233",
+        "type": "link out",
+        "z": "07021e24ebc3f637",
+        "name": "link out 54",
+        "mode": "link",
+        "links": [
+            "72969fbf592fb8ea"
+        ],
+        "x": 2835,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "096fb1b75decc3bb",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "to ActionType",
+        "info": "",
+        "x": 2930,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "23e416414691a461",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "Authorize",
+        "info": "",
+        "x": 680,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "c044454ad0ec7a47",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "send response",
+        "info": "",
+        "x": 700,
         "y": 380,
         "wires": []
     },

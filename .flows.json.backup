@@ -2815,7 +2815,7 @@
         "y": 1040,
         "wires": [
             [
-                "7e0beabf8fdb79aa"
+                "664d67d4c67ba3b9"
             ],
             [
                 "378914556a94d67c"
@@ -3042,8 +3042,8 @@
         "links": [
             "2f4ca784c783021a"
         ],
-        "x": 1445,
-        "y": 1160,
+        "x": 1135,
+        "y": 920,
         "wires": []
     },
     {
@@ -3064,257 +3064,14 @@
         ]
     },
     {
-        "id": "7e0beabf8fdb79aa",
-        "type": "switch",
-        "z": "21bb71fafaf0d583",
-        "name": "authorizationRule is not Empty ?",
-        "property": "req.action.authorizationRule",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "nempty"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1250,
-        "y": 980,
-        "wires": [
-            [
-                "d4c5032c3b57bdef",
-                "b927fcece75cbabd"
-            ],
-            [
-                "664d67d4c67ba3b9",
-                "c6b89407ab589015"
-            ]
-        ]
-    },
-    {
-        "id": "d4c5032c3b57bdef",
-        "type": "com.autana.jsonata",
-        "z": "21bb71fafaf0d583",
-        "name": "evaluate authorized",
-        "template": "req.action.authorizationRule",
-        "templateType": "msg",
-        "target": "req.action.authorized",
-        "targetType": "msg",
-        "x": 1570,
-        "y": 960,
-        "wires": [
-            [
-                "49c8c2024f692874"
-            ]
-        ]
-    },
-    {
-        "id": "49c8c2024f692874",
-        "type": "switch",
-        "z": "21bb71fafaf0d583",
-        "name": "is authorized ?",
-        "property": "req.action.authorized",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1600,
-        "y": 1020,
-        "wires": [
-            [
-                "48ce9c458f076b2f"
-            ],
-            [
-                "ed2d76fe5f582d29"
-            ]
-        ]
-    },
-    {
-        "id": "48ce9c458f076b2f",
-        "type": "link out",
-        "z": "21bb71fafaf0d583",
-        "name": "link out 48",
-        "mode": "link",
-        "links": [
-            "2f4ca784c783021a"
-        ],
-        "x": 1765,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "f3bed67842f5fc3c",
-        "type": "change",
-        "z": "21bb71fafaf0d583",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "statusCode",
-                "pt": "msg",
-                "to": "401",
-                "tot": "str"
-            },
-            {
-                "t": "delete",
-                "p": "payload",
-                "pt": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 380,
-        "y": 980,
-        "wires": [
-            [
-                "a45c62fb34660acc"
-            ]
-        ]
-    },
-    {
-        "id": "a45c62fb34660acc",
-        "type": "link out",
-        "z": "21bb71fafaf0d583",
-        "name": "link out 49",
-        "mode": "link",
-        "links": [
-            "6dc69ec0ea99ea75"
-        ],
-        "x": 535,
-        "y": 980,
-        "wires": []
-    },
-    {
-        "id": "e1ffa98f9a489e88",
-        "type": "comment",
-        "z": "21bb71fafaf0d583",
-        "name": "UnAuthorized",
-        "info": "",
-        "x": 230,
-        "y": 920,
-        "wires": []
-    },
-    {
-        "id": "d783e913ba69190c",
-        "type": "link in",
-        "z": "21bb71fafaf0d583",
-        "name": "link in 26",
-        "links": [
-            "ed2d76fe5f582d29"
-        ],
-        "x": 175,
-        "y": 980,
-        "wires": [
-            [
-                "f3bed67842f5fc3c"
-            ]
-        ]
-    },
-    {
-        "id": "ed2d76fe5f582d29",
-        "type": "link out",
-        "z": "21bb71fafaf0d583",
-        "name": "link out 50",
-        "mode": "link",
-        "links": [
-            "d783e913ba69190c"
-        ],
-        "x": 1765,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "f6b9b3b7dae0a622",
-        "type": "comment",
-        "z": "21bb71fafaf0d583",
-        "name": "401",
-        "info": "",
-        "x": 1850,
-        "y": 1060,
-        "wires": []
-    },
-    {
-        "id": "37dea0c63d4f7d41",
+        "id": "25cdedae0d5cd943",
         "type": "comment",
         "z": "21bb71fafaf0d583",
         "name": "OK",
         "info": "",
-        "x": 1850,
-        "y": 980,
+        "x": 1210,
+        "y": 920,
         "wires": []
-    },
-    {
-        "id": "b927fcece75cbabd",
-        "type": "debug",
-        "z": "21bb71fafaf0d583",
-        "name": "authorizationRule NOT NULL",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1520,
-        "y": 860,
-        "wires": []
-    },
-    {
-        "id": "c6b89407ab589015",
-        "type": "debug",
-        "z": "21bb71fafaf0d583",
-        "name": "authorizationRule NULL",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1530,
-        "y": 1220,
-        "wires": []
-    },
-    {
-        "id": "5847943a6795ebc7",
-        "type": "change",
-        "z": "21bb71fafaf0d583",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "(req.host = 'localhost') = true",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1680,
-        "y": 1120,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "37217bb40323f06e",
@@ -3752,7 +3509,7 @@
         "links": [
             "72969fbf592fb8ea"
         ],
-        "x": 465,
+        "x": 585,
         "y": 340,
         "wires": []
     },
@@ -5631,8 +5388,8 @@
         "name": "",
         "statusCode": "202",
         "headers": {},
-        "x": 2420,
-        "y": 440,
+        "x": 2260,
+        "y": 680,
         "wires": []
     },
     {
@@ -5713,8 +5470,8 @@
         "links": [
             "68d558696d080f2a"
         ],
-        "x": 2375,
-        "y": 500,
+        "x": 2215,
+        "y": 740,
         "wires": []
     },
     {
@@ -5725,8 +5482,8 @@
         "links": [
             "dca01c0d9e476ad3"
         ],
-        "x": 235,
-        "y": 160,
+        "x": 115,
+        "y": 140,
         "wires": [
             [
                 "3b7c8c5f9387b3c7"
@@ -5797,8 +5554,8 @@
         "links": [
             "3359b1a4ce0e706c"
         ],
-        "x": 2305,
-        "y": 460,
+        "x": 2145,
+        "y": 700,
         "wires": [
             [
                 "86575a705f72af13",
@@ -5993,7 +5750,7 @@
         "id": "3adcb03c9bf03f2c",
         "type": "switch",
         "z": "07021e24ebc3f637",
-        "name": "",
+        "name": "statusCode = 200 ?",
         "property": "statusCode",
         "propertyType": "msg",
         "rules": [
@@ -6009,7 +5766,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 290,
+        "x": 330,
         "y": 340,
         "wires": [
             [
@@ -6029,8 +5786,240 @@
         "links": [
             "6b66ab49ecbaa682"
         ],
-        "x": 465,
+        "x": 585,
         "y": 380,
+        "wires": []
+    },
+    {
+        "id": "7e0beabf8fdb79aa",
+        "type": "switch",
+        "z": "07021e24ebc3f637",
+        "name": "authorizationRule is not Empty ?",
+        "property": "req.autana.action.authorizationRule",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "nempty"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 2610,
+        "y": 280,
+        "wires": [
+            [
+                "d4c5032c3b57bdef",
+                "b927fcece75cbabd"
+            ],
+            [
+                "c6b89407ab589015"
+            ]
+        ]
+    },
+    {
+        "id": "d4c5032c3b57bdef",
+        "type": "com.autana.jsonata",
+        "z": "07021e24ebc3f637",
+        "name": "evaluate authorized",
+        "template": "req.autana.action.authorizationRule",
+        "templateType": "msg",
+        "target": "req.autana.action.authorized",
+        "targetType": "msg",
+        "x": 2970,
+        "y": 160,
+        "wires": [
+            [
+                "49c8c2024f692874"
+            ]
+        ]
+    },
+    {
+        "id": "49c8c2024f692874",
+        "type": "switch",
+        "z": "07021e24ebc3f637",
+        "name": "is authorized ?",
+        "property": "req.action.authorized",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 3000,
+        "y": 220,
+        "wires": [
+            [],
+            [
+                "ed2d76fe5f582d29"
+            ]
+        ]
+    },
+    {
+        "id": "f3bed67842f5fc3c",
+        "type": "change",
+        "z": "07021e24ebc3f637",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "statusCode",
+                "pt": "msg",
+                "to": "401",
+                "tot": "str"
+            },
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3160,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e1ffa98f9a489e88",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "UnAuthorized",
+        "info": "",
+        "x": 3010,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d783e913ba69190c",
+        "type": "link in",
+        "z": "07021e24ebc3f637",
+        "name": "link in 26",
+        "links": [
+            "ed2d76fe5f582d29"
+        ],
+        "x": 2955,
+        "y": 580,
+        "wires": [
+            [
+                "f3bed67842f5fc3c"
+            ]
+        ]
+    },
+    {
+        "id": "ed2d76fe5f582d29",
+        "type": "link out",
+        "z": "07021e24ebc3f637",
+        "name": "link out 50",
+        "mode": "link",
+        "links": [
+            "d783e913ba69190c"
+        ],
+        "x": 3165,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f6b9b3b7dae0a622",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "401",
+        "info": "",
+        "x": 3250,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "37dea0c63d4f7d41",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "OK",
+        "info": "",
+        "x": 3250,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b927fcece75cbabd",
+        "type": "debug",
+        "z": "07021e24ebc3f637",
+        "name": "authorizationRule NOT NULL",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2920,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "c6b89407ab589015",
+        "type": "debug",
+        "z": "07021e24ebc3f637",
+        "name": "authorizationRule NULL",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2930,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "5847943a6795ebc7",
+        "type": "change",
+        "z": "07021e24ebc3f637",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "(req.host = 'localhost') = true",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 3080,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bfcdbe2c5ce1f48a",
+        "type": "comment",
+        "z": "07021e24ebc3f637",
+        "name": "reload rules",
+        "info": "",
+        "x": 2310,
+        "y": 740,
         "wires": []
     },
     {
