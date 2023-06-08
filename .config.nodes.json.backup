@@ -416,45 +416,6 @@
             }
         }
     },
-    "autana-flow-asserter": {
-        "name": "autana-flow-asserter",
-        "version": "0.4.1",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "flow-asserter": {
-                "name": "flow-asserter",
-                "types": [
-                    "flow-asserter in",
-                    "flow-asserter out"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "autana-flow-asserter",
-                "file": "/Users/gibi/workspaces/autanaLabs/integrator/dist/mac-arm64/Autana.app/Contents/Resources/app.asar/node_modules/autana-flow-asserter/flow-asserter.js"
-            }
-        }
-    },
-    "autana-testing-call-or-mock": {
-        "name": "autana-testing-call-or-mock",
-        "version": "1.0.7",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "call or mock": {
-                "name": "call or mock",
-                "types": [
-                    "call or mock"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "autana-testing-call-or-mock",
-                "file": "/Users/gibi/workspaces/autanaLabs/integrator/dist/mac-arm64/Autana.app/Contents/Resources/app.asar/node_modules/autana-testing-call-or-mock/subflow.js"
-            }
-        }
-    },
     "node-red-contrib-appwrite": {
         "name": "node-red-contrib-appwrite",
         "version": "0.0.12",
@@ -566,85 +527,6 @@
                 "user": false,
                 "module": "node-red-contrib-key-value-store",
                 "file": "/Users/gibi/workspaces/autana/autana-appwrite-api-gateway/node_modules/node-red-contrib-key-value-store/nodes/write.js"
-            }
-        }
-    },
-    "node-red-contrib-mongodb4": {
-        "name": "node-red-contrib-mongodb4",
-        "version": "1.4.0",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "mongodb4": {
-                "name": "mongodb4",
-                "types": [
-                    "mongodb4-client",
-                    "mongodb4"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-mongodb4",
-                "file": "/Users/gibi/workspaces/autanaLabs/integrator/dist/mac-arm64/Autana.app/Contents/Resources/app.asar/node_modules/node-red-contrib-mongodb4/src/mongodb4.js"
-            }
-        }
-    },
-    "node-red-contrib-postgresql": {
-        "name": "node-red-contrib-postgresql",
-        "version": "0.11.3",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "postgresql": {
-                "name": "postgresql",
-                "types": [
-                    "postgreSQLConfig",
-                    "postgresql"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-postgresql",
-                "file": "/Users/gibi/workspaces/autanaLabs/integrator/dist/mac-arm64/Autana.app/Contents/Resources/app.asar/node_modules/node-red-contrib-postgresql/postgresql.js"
-            }
-        }
-    },
-    "node-red-contrib-sendgrid": {
-        "name": "node-red-contrib-sendgrid",
-        "version": "0.2.1",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "sendgrid": {
-                "name": "sendgrid",
-                "types": [
-                    "sendgrid"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-contrib-sendgrid",
-                "file": "/Users/gibi/workspaces/autanaLabs/integrator/dist/mac-arm64/Autana.app/Contents/Resources/app.asar/node_modules/node-red-contrib-sendgrid/node.js"
-            }
-        }
-    },
-    "node-red-node-mysql": {
-        "name": "node-red-node-mysql",
-        "version": "1.0.3",
-        "local": false,
-        "user": false,
-        "nodes": {
-            "mysql": {
-                "name": "mysql",
-                "types": [
-                    "MySQLdatabase",
-                    "mysql"
-                ],
-                "enabled": true,
-                "local": false,
-                "user": false,
-                "module": "node-red-node-mysql",
-                "file": "/Users/gibi/workspaces/autanaLabs/integrator/dist/mac-arm64/Autana.app/Contents/Resources/app.asar/node_modules/node-red-node-mysql/68-mysql.js"
             }
         }
     },

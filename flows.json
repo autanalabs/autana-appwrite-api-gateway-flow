@@ -43,7 +43,7 @@
         "out": [
             {
                 "x": 620,
-                "y": 1220,
+                "y": 1300,
                 "wires": [
                     {
                         "id": "7082d3a1b7b99c45",
@@ -694,7 +694,7 @@
         "skipExists": true,
         "name": "",
         "x": 390,
-        "y": 1040,
+        "y": 1120,
         "wires": [
             [
                 "3771017c6ff47a5f"
@@ -715,7 +715,7 @@
         "skipExists": true,
         "name": "",
         "x": 400,
-        "y": 1120,
+        "y": 1200,
         "wires": [
             [
                 "7082d3a1b7b99c45"
@@ -749,7 +749,7 @@
         "name": "command and path are unique",
         "info": "",
         "x": 730,
-        "y": 1040,
+        "y": 1120,
         "wires": []
     },
     {
@@ -759,7 +759,7 @@
         "name": "projectId and actionId are unique",
         "info": "",
         "x": 730,
-        "y": 1120,
+        "y": 1200,
         "wires": []
     },
     {
@@ -824,7 +824,7 @@
         "y": 960,
         "wires": [
             [
-                "2b76cb889312b797"
+                "ebb85e53ddbb65ad"
             ]
         ]
     },
@@ -872,10 +872,42 @@
         "skipExists": true,
         "name": "",
         "x": 370,
-        "y": 1200,
+        "y": 1280,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "ebb85e53ddbb65ad",
+        "type": "com.autana.StringColumn",
+        "z": "7e59738d989d54b6",
+        "appwriteConfig": "8b9887394539e844",
+        "databaseName": "main",
+        "tableName": "",
+        "key": "authorizationRule",
+        "size": "4096",
+        "required": false,
+        "defaultValue": "",
+        "isArray": false,
+        "skipExists": true,
+        "name": "",
+        "x": 390,
+        "y": 1040,
+        "wires": [
+            [
+                "2b76cb889312b797"
+            ]
+        ]
+    },
+    {
+        "id": "f85c4e28b11227d5",
+        "type": "comment",
+        "z": "7e59738d989d54b6",
+        "name": "JSONata Authorization rule",
+        "info": "",
+        "x": 710,
+        "y": 1040,
+        "wires": []
     },
     {
         "id": "705577d5392af509",
