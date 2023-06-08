@@ -6429,7 +6429,7 @@
         "wires": [
             [
                 "8e52da349c1bcb29",
-                "79b97312e37d7958"
+                "7c1fc31ce2b9d705"
             ]
         ]
     },
@@ -6437,10 +6437,10 @@
         "id": "8e52da349c1bcb29",
         "type": "debug",
         "z": "07021e24ebc3f637",
-        "name": "reload request",
+        "name": "reload:request",
         "active": true,
         "tosidebar": true,
-        "console": false,
+        "console": true,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
@@ -6457,8 +6457,8 @@
         "name": "",
         "statusCode": "202",
         "headers": {},
-        "x": 2260,
-        "y": 680,
+        "x": 2320,
+        "y": 600,
         "wires": []
     },
     {
@@ -6564,7 +6564,7 @@
         "type": "http response",
         "z": "07021e24ebc3f637",
         "name": "",
-        "statusCode": "403",
+        "statusCode": "401",
         "headers": {},
         "x": 1940,
         "y": 740,
@@ -6589,16 +6589,16 @@
         "id": "a67a22f667045d90",
         "type": "debug",
         "z": "07021e24ebc3f637",
-        "name": "prepare",
-        "active": false,
+        "name": "reload:signature_prepare",
+        "active": true,
         "tosidebar": true,
-        "console": false,
+        "console": true,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2160,
+        "x": 2220,
         "y": 160,
         "wires": []
     },
@@ -6627,8 +6627,8 @@
         "y": 700,
         "wires": [
             [
-                "86575a705f72af13",
-                "dca01c0d9e476ad3"
+                "dca01c0d9e476ad3",
+                "8412b869c1d2ad40"
             ]
         ]
     },
@@ -6636,16 +6636,16 @@
         "id": "9fbf2fd2fdf4653e",
         "type": "debug",
         "z": "07021e24ebc3f637",
-        "name": "Authorized",
+        "name": "reload:Authorized",
         "active": true,
         "tosidebar": true,
-        "console": false,
+        "console": true,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1950,
+        "x": 1970,
         "y": 660,
         "wires": []
     },
@@ -6708,8 +6708,8 @@
         "type": "function",
         "z": "07021e24ebc3f637",
         "name": "get authorization",
-        "func": "var msg = msg;\nvar headers = msg.req.rawHeaders;\nvar authPos = headers.indexOf(\"authorization\");\nif (authPos >= 0) {\n    var auth = headers[authPos + 1].replace(\"Basic \",\"\");\n    msg.payload = auth;\n   \n}\nreturn msg;\n",
-        "outputs": 1,
+        "func": "var msg = msg;\nvar authorization = msg.req.headers.authorization;\n\nif (authorization != null) {\n    msg.payload = authorization.replace(\"Basic \", \"\");\n    return [ msg, null ];\n} else {\n    return [ null, msg ];\n}\n",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
@@ -6718,11 +6718,16 @@
         "y": 480,
         "wires": [
             [
-                "994464dc504cc92c"
+                "994464dc504cc92c",
+                "9ffd825fc82be5fb"
+            ],
+            [
+                "0457e83df3726587"
             ]
         ],
         "outputLabels": [
-            "authorized"
+            "with_auth",
+            "no_auth"
         ]
     },
     {
@@ -6743,16 +6748,16 @@
         "id": "477d54e58e7389d2",
         "type": "debug",
         "z": "07021e24ebc3f637",
-        "name": "hash",
-        "active": false,
+        "name": "reload:hash",
+        "active": true,
         "tosidebar": true,
-        "console": false,
+        "console": true,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2050,
+        "x": 2080,
         "y": 400,
         "wires": []
     },
@@ -6802,16 +6807,16 @@
         "id": "f42bb9ef14ff8c72",
         "type": "debug",
         "z": "07021e24ebc3f637",
-        "name": "NO Authorized",
+        "name": "reload:NO Authorized",
         "active": true,
         "tosidebar": true,
-        "console": false,
+        "console": true,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1960,
+        "x": 1990,
         "y": 780,
         "wires": []
     },
@@ -7183,56 +7188,57 @@
         "wires": []
     },
     {
-        "id": "b820885771d23f86",
-        "type": "inject",
-        "z": "07021e24ebc3f637",
-        "name": "",
-        "props": [
-            {
-                "p": "project",
-                "v": "APIGATEWAY_PROJECT",
-                "vt": "env"
-            },
-            {
-                "p": "endpoint",
-                "v": "APIGATEWAY_ENDPOINT",
-                "vt": "env"
-            },
-            {
-                "p": "apiKey",
-                "v": "APIGATEWAY_APIKEY",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 690,
-        "y": 80,
-        "wires": [
-            [
-                "70d04cbc2e90c5c0"
-            ]
-        ]
-    },
-    {
-        "id": "70d04cbc2e90c5c0",
+        "id": "9ffd825fc82be5fb",
         "type": "debug",
         "z": "07021e24ebc3f637",
-        "name": "debug 1",
+        "name": "reload:authorization",
         "active": true,
         "tosidebar": true,
-        "console": false,
+        "console": true,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
-        "y": 80,
+        "x": 2060,
+        "y": 480,
         "wires": []
+    },
+    {
+        "id": "0457e83df3726587",
+        "type": "http response",
+        "z": "07021e24ebc3f637",
+        "name": "",
+        "statusCode": "401",
+        "headers": {},
+        "x": 2020,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "8412b869c1d2ad40",
+        "type": "change",
+        "z": "07021e24ebc3f637",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "payload",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2310,
+        "y": 660,
+        "wires": [
+            [
+                "86575a705f72af13"
+            ]
+        ]
     },
     {
         "id": "1f5e86cf01c16650",
