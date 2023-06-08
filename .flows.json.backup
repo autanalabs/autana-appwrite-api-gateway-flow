@@ -3250,7 +3250,7 @@
         "y": 1260,
         "wires": [
             [
-                "ea35cef142ecd517"
+                "29cf852843aa3af3"
             ]
         ]
     },
@@ -3263,7 +3263,7 @@
         "links": [
             "172f55cf6ac7b5d5"
         ],
-        "x": 1725,
+        "x": 1895,
         "y": 1260,
         "wires": []
     },
@@ -3349,7 +3349,7 @@
         "id": "e36df26c791d5830",
         "type": "change",
         "z": "21bb71fafaf0d583",
-        "name": "",
+        "name": "set token",
         "rules": [
             {
                 "t": "set",
@@ -3357,6 +3357,11 @@
                 "pt": "msg",
                 "to": "req.autana.authorization.value",
                 "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "req.autana.authorization.value",
+                "pt": "msg"
             }
         ],
         "action": "",
@@ -3364,11 +3369,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1120,
+        "x": 1020,
         "y": 1340,
         "wires": [
             [
-                "053d3243271c5bd9"
+                "c19008729a87b391"
             ]
         ]
     },
@@ -3381,9 +3386,192 @@
         "links": [
             "172f55cf6ac7b5d5"
         ],
-        "x": 1365,
-        "y": 1340,
+        "x": 1685,
+        "y": 1660,
         "wires": []
+    },
+    {
+        "id": "29cf852843aa3af3",
+        "type": "change",
+        "z": "21bb71fafaf0d583",
+        "name": "remove value",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "req.autana.authorization.value",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1730,
+        "y": 1260,
+        "wires": [
+            [
+                "ea35cef142ecd517"
+            ]
+        ]
+    },
+    {
+        "id": "c19008729a87b391",
+        "type": "function",
+        "z": "21bb71fafaf0d583",
+        "name": "split token",
+        "func": "var msg = msg;\nvar token = msg.req.autana.authorization.token;\nmsg.payload = token.split(\".\");\nif (msg.payload.length == 3) {\n    msg.tokenSignature = msg.payload.pop();\n} \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1190,
+        "y": 1340,
+        "wires": [
+            [
+                "963f3f22b7715adc",
+                "2b716a745d35ad64"
+            ]
+        ]
+    },
+    {
+        "id": "963f3f22b7715adc",
+        "type": "split",
+        "z": "21bb71fafaf0d583",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1350,
+        "y": 1340,
+        "wires": [
+            [
+                "2076cf83b3971f0d"
+            ]
+        ]
+    },
+    {
+        "id": "2076cf83b3971f0d",
+        "type": "decode",
+        "z": "21bb71fafaf0d583",
+        "name": "decode JWT part",
+        "encode": "Base64",
+        "x": 1470,
+        "y": 1420,
+        "wires": [
+            [
+                "57c17d1e2fbf6f94"
+            ]
+        ]
+    },
+    {
+        "id": "64dcd631dff786d3",
+        "type": "join",
+        "z": "21bb71fafaf0d583",
+        "name": "",
+        "mode": "auto",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1350,
+        "y": 1600,
+        "wires": [
+            [
+                "a3c96f220fa2520b"
+            ]
+        ]
+    },
+    {
+        "id": "a3c96f220fa2520b",
+        "type": "change",
+        "z": "21bb71fafaf0d583",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "req.autana.authorization.token",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1460,
+        "y": 1660,
+        "wires": [
+            [
+                "053d3243271c5bd9"
+            ]
+        ]
+    },
+    {
+        "id": "2b716a745d35ad64",
+        "type": "debug",
+        "z": "21bb71fafaf0d583",
+        "name": "after split",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "57c17d1e2fbf6f94",
+        "type": "encode",
+        "z": "21bb71fafaf0d583",
+        "name": "JWT part to String",
+        "encode": "Latin1",
+        "x": 1470,
+        "y": 1480,
+        "wires": [
+            [
+                "f2375f79e631f3b1"
+            ]
+        ]
+    },
+    {
+        "id": "f2375f79e631f3b1",
+        "type": "function",
+        "z": "21bb71fafaf0d583",
+        "name": "to JSON",
+        "func": "var msg = msg;\nmsg.payload = JSON.parse(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 1540,
+        "wires": [
+            [
+                "64dcd631dff786d3"
+            ]
+        ]
     },
     {
         "id": "37217bb40323f06e",
