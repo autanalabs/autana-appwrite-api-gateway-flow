@@ -9,6 +9,10 @@ services:
       - "10978:10978"
     networks:
       - app_network
+    environment:
+      - APIGATEWAY_ENDPOINT=${APIGATEWAY_ENDPOINT}
+      - APIGATEWAY_PROJECT=${APIGATEWAY_PROJECT}
+      - APIGATEWAY_APIKEY=${APIGATEWAY_APIKEY}
 
 networks:
   app_network:
