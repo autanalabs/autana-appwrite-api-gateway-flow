@@ -6771,7 +6771,7 @@
         "y": 600,
         "wires": [
             [
-                "6f754358e6734831"
+                "8776ad4411e68491"
             ]
         ]
     },
@@ -6780,14 +6780,14 @@
         "type": "function",
         "z": "07021e24ebc3f637",
         "name": "Authorize",
-        "func": "var msg = msg;\nvar parts = msg.payload.split(\":\");\nmsg.authorization = {\n    user: parts[0],\n    password: parts[1]\n};\n\nif (msg.authorization.user == \"autana_webhook_rule_reload\" \n    && msg.authorization.password == \"tfdoPu5Y3ZmKsF4g7HxRZ8hplIA=\") {\n    return [msg, null];\n} else {\n    return [null, msg];\n}\n",
+        "func": "var msg = msg;\nvar parts = msg.payload.split(\":\");\nmsg.authorization = {\n    user: parts[0],\n    password: parts[1]\n};\n\nif (msg.authorization.user == msg.config.user \n    && msg.authorization.password == msg.config.password) {\n    return [msg, null];\n} else {\n    return [null, msg];\n}\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1740,
-        "y": 700,
+        "x": 1720,
+        "y": 720,
         "wires": [
             [
                 "9fbf2fd2fdf4653e",
@@ -7262,6 +7262,40 @@
         "wires": [
             [
                 "e8627dde151f51e1"
+            ]
+        ]
+    },
+    {
+        "id": "8776ad4411e68491",
+        "type": "change",
+        "z": "07021e24ebc3f637",
+        "name": "read env",
+        "rules": [
+            {
+                "t": "set",
+                "p": "config.user",
+                "pt": "msg",
+                "to": "API_GATEWAY_WEBHOOK_USER",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "config.password",
+                "pt": "msg",
+                "to": "API_GATEWAY_WEBHOOK_PASSWORD",
+                "tot": "env"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1720,
+        "y": 660,
+        "wires": [
+            [
+                "6f754358e6734831"
             ]
         ]
     },
