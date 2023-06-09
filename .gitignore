@@ -1,4 +1,4 @@
 node_modules/
-autana-apigateway.image
 .DS_Store
 set-environment.sh 
+autana.sh
