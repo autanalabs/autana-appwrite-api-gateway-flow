@@ -5,6 +5,8 @@ services:
     container_name: proxy
     hostname: proxy
     image: nginx
+    networks:
+      - app_network
     ports:
       - 80:80
       - 443:443

@@ -1,7 +1,9 @@
+.env
 node_modules/
 .DS_Store
 set-environment.sh 
 set-environment-autana.sh 
 autana.sh
 certs/cert.pem
-certs/cert.pem.key
+certs/cert.key.pem
+
