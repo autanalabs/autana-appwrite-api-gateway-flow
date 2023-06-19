@@ -95,7 +95,7 @@ ENV NODE_RED_VERSION=$NODE_RED_VERSION \
 # ENV NODE_RED_ENABLE_PROJECTS=true     # Uncomment to enable projects option
 
 # Expose the listening port of node-red
-EXPOSE 80
+EXPOSE 1978 10978
 
 # Add a healthcheck (default every 30 secs)
 # HEALTHCHECK CMD curl http://localhost:1880/ || exit 1

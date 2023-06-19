@@ -3,3 +3,5 @@ node_modules/
 set-environment.sh 
 set-environment-autana.sh 
 autana.sh
+certs/cert.pem
+certs/cert.pem.key

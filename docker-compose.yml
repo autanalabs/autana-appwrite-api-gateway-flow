@@ -1,11 +1,23 @@
 version: '3.8'
 
 services:
+  proxy:
+    container_name: proxy
+    hostname: proxy
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - nginx:/etc/nginx
+      - certs/etc/ssl/private
   gateway:
+    container_name: gateway
+    hostname: gateway
     image: autana-apigateway:latest
     restart: always
     ports:
-      - "80:80"
+      - "1978:1978"
       - "10978:10978"
     networks:
       - app_network

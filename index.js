@@ -15,7 +15,7 @@ var server = http.createServer(app);
 // Create the settings object - see default settings.js file for other options
 var settings = {
     flowFile: 'flows.json',
-    uiPort: process.env.PORT || 80,
+    uiPort: process.env.PORT || 1978,
     httpAdminRoot: '/ide',
     httpNodeRoot: '/api',
     functionGlobalContext: {},
@@ -60,7 +60,7 @@ app.use(settings.httpAdminRoot, RED.httpAdmin);
 // Serve the http nodes UI from /api
 app.use(settings.httpNodeRoot, RED.httpNode);
 
-server.listen(80);
+server.listen(1978);
 
 // Start the runtime
 RED.start();
