@@ -9,8 +9,8 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - nginx:/etc/nginx
-      - certs/etc/ssl/private
+      - ./nginx:/etc/nginx
+      - ./certs/etc/ssl/private
   gateway:
     container_name: gateway
     hostname: gateway
